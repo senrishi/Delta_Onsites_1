@@ -106,33 +106,52 @@ for i in "${!arr2[@]}"; do
 done
 
 echo -e "\nStats for ${arr2[0]}:\n "
+declare -A nmonth1 nmonth2 nmonth3 nmonth4 nmonth5
 
 for key in "${!month1[@]}"; do
-    echo -e "\n$key : ${month1[$key]} bytes"
+    nmonth1[${month1[$key]}]=$key
+done
+
+for key in "${!month2[@]}"; do
+    nmonth2[${month2[$key]}]=$key
+done
+for key in "${!month3[@]}"; do
+    nmonth3[${month3[$key]}]=$key
+done
+for key in "${!month4[@]}"; do
+    nmonth4[${month4[$key]}]=$key
+done
+for key in "${!month5[@]}"; do
+    nmonth5[${month5[$key]}]=$key
+done
+
+for key in "${!nmonth1[@]}"; do
+    echo -e "\n${nmonth1[$key]} : $key bytes"
 done | sort -rn | head -5
 
 echo -e "\nStats for ${arr2[1]}:\n "
 
-for key in "${!month2[@]}"; do
-    echo -e "\n$key : ${month2[$key]} bytes"
+for key in "${!nmonth2[@]}"; do
+    echo -e "\n${nmonth2[$key]} : $key bytes"
 done | sort -rn | head -5
 
 echo -e "\nStats for ${arr2[2]}:\n "
 
-for key in "${!month3[@]}"; do
-    echo -e "\n$key : ${month3[$key]} bytes"
+for key in "${!nmonth3[@]}"; do
+    echo -e "\n${nmonth3[$key]} : $key bytes"
 done | sort -rn | head -5
 
 echo -e "\nStats for ${arr2[3]}:\n "
 
-for key in "${!month4[@]}"; do
-    echo -e "\n$key : ${month4[$key]} bytes"
+for key in "${!nmonth4[@]}"; do
+    echo -e "\n${nmonth4[$key]} : $key bytes"
 done | sort -rn | head -5
 
 echo -e "\nStats for ${arr2[4]}:\n "
-for key in "${!month5[@]}"; do
-    echo -e "\n$key : ${month5[$key]} bytes"
+for key in "${!nmonth5[@]}"; do
+    echo -e "\n${nmonth5[$key]} : $key bytes"
 done | sort -rn | head -5
+
 
 
 
@@ -153,3 +172,8 @@ unset month2
 unset month3
 unset month4
 unset month5
+unset nmonth1
+unset nmonth2
+unset nmonth3
+unset nmonth4
+unset nmonth5
