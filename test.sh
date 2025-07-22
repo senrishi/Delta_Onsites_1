@@ -2,6 +2,8 @@
 
 #traverse thru all the file types in the dir.
 
+# OLD FILE PLS IGNORE 
+
 declare filetypes
 while IFS= read -r ext; do
     if [[ ${#ext} -le 3 ]]
